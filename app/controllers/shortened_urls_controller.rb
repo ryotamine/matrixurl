@@ -1,10 +1,10 @@
 class ShortenedUrlsController < ApplicationController
 
   before_action :find_url, only: [:show, :shortened]
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
   def index
-    @url = ShortenedURL.new
+    @url = ShortenedUrl.new
   end
 
   def show
@@ -12,7 +12,7 @@ class ShortenedUrlsController < ApplicationController
   end
 
   def create
-    @url = ShortenedURL.new
+    @url = ShortenedUrl.new
     @url.long_url = params[:long_url]
     @url.sanitize
     if @url.new_url?
@@ -29,20 +29,20 @@ class ShortenedUrlsController < ApplicationController
   end
 
   def shortened
-    @url = ShortenedURL.find_by_short_url(params[:short_url])
+    @url = ShortenedUrl.find_by_short_url(params[:short_url])
     host = request.host_with.port
     @long_url = @url.sanitize_url
     @short_url = host + '/' + @url.short_url
   end
 
   def fetch_long_url
-    fetch_url = ShortenedURL.find_by_short_url(params[:short_url])
+    fetch_url = ShortenedUrl.find_by_short_url(params[:short_url])
     redirect_to fetch_url.sanitize_url
   end
 
   private
   def find_url
-    @url = ShortenedURL.find_by_short_url(params[:short_url])
+    @url = ShortenedUrl.find_by_short_url(params[:short_url])
   end
 
   def url_params

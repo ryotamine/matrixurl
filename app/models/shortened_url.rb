@@ -20,7 +20,7 @@ class ShortenedUrl < ApplicationRecord
 
   # Check if any duplicate URL exist before saving into database
   def find_duplicate
-    ShortenedUrl.find_by_sanitized_url(self.sanitize_url)
+    ShortenedUrl.find_by_sanitize_url(self.sanitize_url)
   end
 
   def new_url?
@@ -30,7 +30,7 @@ class ShortenedUrl < ApplicationRecord
   # Sanitize the given user URL
   def sanitize
     self.long_url.strip!
-    self.sanitize_url = self.long_url.downcase.gsub(/(https:?\/\/)|(www\.)/, "")
+    self.sanitize_url = self.long_url.downcase.gsub(/(https?:\/\/)|(www\.)/, "")
     self.sanitize_url = "http://#{self.sanitize_url}"
   end
 end
