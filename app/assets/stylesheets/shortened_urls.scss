@@ -2,26 +2,46 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  background-image: url('matrix-background.png');
+  background-size: cover;
+  z-index: -1;
+  margin: 0 auto;
+  height: 100%;
+}
+
 h1, h2, .longUrl {
   text-align: center;
+  color: white;
 }
 
 h1 {
-  font-family: Matrix, sans-serif;
-  font-size: 72px;
+  font-family: Matrix, Arial, sans-serif;
+  font-size: 80px;
   font-weight: bold;
   letter-spacing: 10px;
 }
 
 h2 {
-  font-family: Roboto, sans-serif;
-  font-size: 30px;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 40px;
 }
 
-.addUrl {
+.longUrl input[type=text], .longUrl input[type=submit] {
   margin: 10px;
-  padding: 5px;
-  font-size: 30px;
-  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  border-color: black;
+  font-size: 20px;
+}
+
+.longUrl input[type=text] {
   width: 80%;
+}
+
+.longUrl input[type=submit] {
+  background-color: grey;
+  color: white;
+  text-align: center;
+  cursor: pointer;
 }
