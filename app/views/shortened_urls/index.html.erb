@@ -1,9 +1,17 @@
 <html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  </head>
   <body>
-    <h2>Enter the Url</h2>
-    <form action="shortened_urls/create" method="POST">
-      <input type="text" value="" name="long_url"/>
-      <input type="submit" value="Submit">
+    <h1>MATRIXURL</h1>
+    <h2>ENTER URL</h2>
+    <form class="longUrl" action="shortened_urls/create" method="POST">
+      <div class="addURL">
+        <input type="text" placeholder="SHORTEN URL" name="long_url"/>
+      </div>
+      <div class="submitURL">
+        <input type="submit" value="Submit">
+      </div>
     </form>
   </body>
 </html>
