@@ -30,7 +30,7 @@ class ShortenedUrlsController < ApplicationController
 
   def shortened
     @url = ShortenedUrl.find_by_short_url(params[:short_url])
-    host = request.host_with.port
+    host = request.host_with_port
     @long_url = @url.sanitize_url
     @short_url = host + '/' + @url.short_url
   end
