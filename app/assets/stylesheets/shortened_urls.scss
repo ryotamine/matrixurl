@@ -43,5 +43,9 @@ h2 {
   background-color: grey;
   color: white;
   text-align: center;
+}
+
+.longUrl input[type=submit]:hover {
+  background-color: #aaa;
   cursor: pointer;
 }
