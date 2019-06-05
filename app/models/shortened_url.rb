@@ -3,7 +3,7 @@ class ShortenedUrl < ApplicationRecord
   UNIQUE_ID_LENGTH = 6
   validates :long_url, presence: true, on: :create
   validates_format_of :long_url, 
-  with: /\A(?:(?:http|https):\/\/)?([-a-zA-Z0-9.]{2,256}\.[a-z]{2-4})\b(?:\/[-a-zA-Z0-9@,!:%_\+.~#?&\/\/=]*)?\z/
+    with: /\A(?:(?:http|https):\/\/)?([-a-zA-Z0-9.]{2,256}\.[a-z]{2,4})\b(?:\/[-a-zA-Z0-9@,!:%_\+.~#?&\/\/=]*)?\z/
   before_create :generate_short_url
   before_create :sanitize
 
